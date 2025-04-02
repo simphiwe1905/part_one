@@ -101,8 +101,21 @@ namespace part_one
                 Boolean found = false;
                 string message = String.Empty;
 
+                for ( int counting = 0; counting < store_final_words.Count; counting++ ) 
+                {
+                    for ( int count = 0; count < replies.Count; count++ )
+                    {
+                        
+                        if ( store_final_words[ counting].ToString().Contains(replies[count].ToString()) ) 
+                        {
+                            message += replies[count] + "\n";
+                            found = true;
+                        }
+                    }
+                }
+
                 //making a for loop for final responses
-                for (int counting = 0; counting < store_final_words.Count; counting++)
+                /*for (int counting = 0; counting < store_final_words.Count; counting++)
                 {
                     //search for the answer from the temporary array list
                     for (int count = 0; count < replies.Count; count++)
@@ -116,7 +129,7 @@ namespace part_one
                             found = true;
                         }
                     }
-                }
+                }*/
 
                 //displaying an error message or answers
                 if (found)
@@ -128,6 +141,8 @@ namespace part_one
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine(message);
                 }
+
+
                 else
                 {
                     //if the condition is false then an error message will display 
